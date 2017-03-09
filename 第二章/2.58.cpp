@@ -5,8 +5,7 @@ typedef unsigned char* byte_pointer;
 int is_little_endian() {
 	short s = 0x0001;
 	byte_pointer start = (byte_pointer)&s;
-	if(start[0] != 0) return 1;
-	return 0;
+	return start[0];
 } 
 
 int main() {
