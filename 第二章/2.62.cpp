@@ -1,11 +1,15 @@
 #include <stdio.h>
-#include <limits.h>
+
 typedef unsigned char* byte_pointer;
 
 int int_shifts_are_logical() {
-	int n = ~0;
-	n >>= (sizeof(int)<<3)-1;
-	return n & 1;
+	unsigned n = ~0;
+	int m = ((sizeof(int)<<3)-1);
+	n >>= (m);
+	//printf("%d %x\n",m,n);
+	n >>= 1;
+	//printf("%d %x\n",m,n);
+	return !(n & 1);
 }
 
 int main() {
